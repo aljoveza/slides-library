@@ -1,0 +1,20 @@
+{
+  "name": "@slides/ai-augmented-support",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "slidev build slides.md",
+    "dev": "slidev slides.md --open",
+    "export:pdf": "slidev export slides.md --format pdf --output ai-augmented-support.pdf --with-clicks false",
+    "export:pptx": "slidev export slides.md --format pptx --output ai-augmented-support.pptx --with-clicks false"
+  },
+  "dependencies": {
+    "@slidev/cli": "catalog:",
+    "@slidev/theme-default": "catalog:",
+    "vue": "catalog:"
+  },
+  "devDependencies": {
+    "@slidev/types": "catalog:",
+    "playwright-chromium": "catalog:"
+  }
+}

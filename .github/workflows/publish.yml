@@ -1,0 +1,73 @@
+name: Publish slides
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/publish.yml'
+      - 'decks/**'
+      - 'scripts/**'
+      - 'shared/**'
+      - 'package.json'
+      - 'pnpm-lock.yaml'
+      - 'pnpm-workspace.yaml'
+  workflow_dispatch:
+
+concurrency:
+  group: publish-slides
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+env:
+  AWS_REGION: ${{ vars.AWS_REGION || 'us-east-1' }}
+  S3_PREFIX: ${{ vars.S3_PREFIX || 'slides' }}
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Install Chromium system dependencies
+        run: pnpm exec playwright install-deps chromium
+
+      - name: Build web, PDF, and PPTX artifacts
+        run: pnpm build -- --base-prefix "$S3_PREFIX"
+
+      - name: Keep a copy in the workflow run
+        uses: actions/upload-artifact@v4
+        with:
+          name: slides
+          path: dist/
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v5
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Publish to S3
+        env:
+          S3_BUCKET: ${{ secrets.S3_BUCKET }}
+        run: aws s3 sync dist/ "s3://${S3_BUCKET}/${S3_PREFIX}/" --delete --only-show-errors

@@ -1,0 +1,30 @@
+# Dependencies
+node_modules/
+
+# Slidev and Vite caches
+.slidev/
+.vite/
+**/.vite/
+
+# Generated artifacts
+dist/
+**/dist/
+**/slides-export.*
+**/*.pdf
+**/*.pptx
+tmp/
+
+# Environment and local configuration
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+pnpm-debug.log*
+
+# Editors and operating systems
+.DS_Store
+.idea/
+.vscode/*
+!.vscode/extensions.json

@@ -1,0 +1,61 @@
+:root {
+  --slides-accent: #6366f1;
+  --slides-ink: #172033;
+  --slides-muted: #64748b;
+  --slides-surface: #f8fafc;
+}
+
+.slidev-layout {
+  color: var(--slides-ink);
+  font-family: Aptos, Inter, ui-sans-serif, system-ui, sans-serif;
+  padding: 3.5rem 4rem;
+}
+
+.slidev-layout h1,
+.slidev-layout h2,
+.slidev-layout h3 {
+  color: var(--slides-ink);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.slidev-layout h1 {
+  font-size: 2.6rem;
+  line-height: 1.08;
+}
+
+.slidev-layout h2 {
+  font-size: 2rem;
+  line-height: 1.15;
+}
+
+.slidev-layout p,
+.slidev-layout li {
+  font-size: 1.1rem;
+  line-height: 1.55;
+}
+
+.slidev-layout strong,
+.slidev-layout a {
+  color: var(--slides-accent);
+}
+
+.slidev-layout code {
+  font-size: 0.9em;
+}
+
+.slidev-layout.cover {
+  background:
+    radial-gradient(circle at 88% 18%, color-mix(in srgb, var(--slides-accent) 22%, transparent), transparent 25%),
+    var(--slides-surface);
+}
+
+.slidev-layout.cover h1 {
+  max-width: 12ch;
+  font-size: 3.4rem;
+}
+
+.slidev-layout.cover p {
+  max-width: 34rem;
+  color: var(--slides-muted);
+}

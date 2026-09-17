@@ -1,0 +1,19 @@
+{
+  "name": "slides-library",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@12.4.2",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "build": "node scripts/build-artifacts.mjs",
+    "build:web": "node scripts/build-artifacts.mjs --web-only",
+    "dev:ai-support": "pnpm --dir decks/ai-augmented-support dev",
+    "dev:example": "pnpm --dir decks/example dev",
+    "export": "node scripts/build-artifacts.mjs --exports-only"
+  },
+  "devDependencies": {
+    "playwright-chromium": "catalog:"
+  }
+}
