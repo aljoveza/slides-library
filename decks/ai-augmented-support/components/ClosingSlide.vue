@@ -1,10 +1,10 @@
 <template>
   <div class="deck-shell closing-shell">
     <ParticleWave />
-    <div class="closing-question enter enter-1">“¿Cuánto tiempo usamos resolviendo incidentes y cuánto reconstruyendo lo que ya se sabía?”</div>
+    <div class="closing-question enter enter-1">“¿Está listo tú esquema de soporte para pasar al siguiente nivel?”</div>
     <div class="closing-answer enter enter-2">
       <span>SIGUIENTE PASO</span>
-      <strong>RESOLVER Y PREVENIR, NO RECONSTRUIR</strong>
+      <strong>EVOLUCIONA LA EXPERIENCIA DE TUS CLIENTES CON IA EN EL CICLO DE SOPORTE</strong>
     </div>
     <div class="continuum enter enter-3">
       <div class="tiers"><span>T0</span><i></i><span>T1</span><i></i><span>T2</span><i></i><span>T3</span></div>

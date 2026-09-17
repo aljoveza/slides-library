@@ -2,7 +2,7 @@
   <div class="deck-shell opening-shell">
     <ParticleWave />
     <div class="opening-prompt enter enter-1">PREGUNTA INICIAL</div>
-    <div class="opening-question enter enter-2">“¿Cuánto tiempo usamos resolviendo incidentes y cuánto reconstruyendo lo que ya se sabía?”</div>
+    <div class="opening-question enter enter-2">“¿Qué pasa si la inteligencia artificial es llevada al ciclo de soporte de tú aplicación?”</div>
     <div class="opening-pause enter enter-3">PAUSA</div>
     <DeckFooter page="" />
   </div>
